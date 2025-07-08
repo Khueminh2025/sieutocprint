@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Đặt hàng in ấn</h2>
+<form method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+  {{ order_form.as_p }}
+  {{ item_form.as_p }}
+  <button type="submit">Đặt hàng</button>
+</form>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<h2>Tra cứu đơn hàng</h2>
+
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Tra cứu</button>
+</form>
+
+{% if result == 'not_found' %}
+  <p style="color:red">❌ Không tìm thấy đơn hàng!</p>
+{% elif result %}
+  <h3>✅ Đơn hàng: {{ result.order_code }}</h3>
+  <p>Khách hàng: {{ result.customer_name }}</p>
+  <p>Điện thoại: {{ result.phone_number }}</p>
+  <p>Trạng thái: {{ result.get_payment_status_display }}</p>
+  <ul>
+    {% for item in result.items.all %}
+      <li>{{ item.product.name }} - {{ item.paper_type.name }} - {{ item.size.name }} - SL: {{ item.quantity }}</li>
+    {% endfor %}
+  </ul>
+{% endif %}

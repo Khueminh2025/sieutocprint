@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Đặt hàng thành công!</h2>
+<p>Mã đơn hàng của bạn là: <strong>{{ order_code }}</strong></p>
+
+<p>Vui lòng chuyển khoản đến tài khoản công ty và ghi rõ mã đơn hàng trong nội dung.</p>
+<img src="{{ qr_image }}" alt="QR chuyển khoản" width="300">
+<p><strong>Nội dung chuyển khoản:</strong> {{ order_code }}</p>
+
+<p><a href="{% url 'lookup_order' %}">➡️ Tra cứu đơn hàng tại đây</a></p>
+
+</body>
+</html>
